@@ -1,0 +1,48 @@
+#include "Window.h"
+
+GameWindow::GameWindow(const std::string& windowName, float width, float height)
+	: WindowGame(sf::VideoMode(width, height), windowName/*, sf::Style::Titlebar*/) // 1
+{
+	//WindowGame.setVerticalSyncEnabled(true); // 2
+	//WindowGame.setFramerateLimit(60);
+}
+
+void GameWindow::Update()
+{
+	sf::Event event; // 3
+	if (WindowGame.pollEvent(event))
+	{
+		if (event.type == sf::Event::Closed)
+		{
+			WindowGame.close();
+		}
+	}
+}
+
+void GameWindow::BeginDraw() // 4
+{
+	WindowGame.clear();
+}
+
+void GameWindow::Draw(const sf::Drawable& drawable)
+{
+	WindowGame.draw(drawable);
+}
+
+void GameWindow::EndDraw()
+{
+	WindowGame.display();
+}
+
+bool GameWindow::IsOpen() const
+{
+	return WindowGame.isOpen();
+}
+
+void GameWindow::SetSpriteBackground(sf::Texture t)
+{
+	t.setSmooth(true);
+	sf::Sprite s(t);
+	
+	sprite = s;
+}
