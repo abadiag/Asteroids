@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
+#include "EventManager.h"
 
 class GameObject
 {

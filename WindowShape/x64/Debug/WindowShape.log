@@ -1,5 +1,21 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (WindowShape.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Window.cpp
-C:\Users\Albert\source\repos\Graph\WindowShape\Window.cpp(4,36): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\Albert\source\repos\Graph\WindowShape\Window.cpp(4,29): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+  GameManager.cpp
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(8,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(31,53): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(32,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(32,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(80,52): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(83,63): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(86,56): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(104,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(138,38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(138,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(147,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(147,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(147,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(159,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(159,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  main.cpp
+  Generating Code...
+C:\Users\Albert\source\repos\Graph\WindowShape\GameManager.cpp(67): warning C4715: 'GameManager::GetGObjByName': not all control paths return a value
   WindowShape.vcxproj -> C:\Users\Albert\source\repos\Graph\x64\Debug\Asteroids.exe

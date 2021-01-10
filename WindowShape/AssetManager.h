@@ -8,8 +8,9 @@
 #include "Animation.h"
 
 
-struct Asset
+class Asset
 {
+public:
 	std::string name;
 	sf::Texture texture;
 };

@@ -6,6 +6,7 @@ class Player: public GameObject
 public:
     bool thrust;
     Player();
+    void InputKeyb(Actions* a);
     void update();
 };
 

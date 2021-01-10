@@ -15,6 +15,11 @@ void AssetManager::LoadAssets()
         Assets.push_back(GetAsset(s, assetName));
     }
 
+    //for(Asset* a: Assets)
+    //{
+    //    std::cout << a->name;
+    //    std::cout << a->texture.getSize().x << std::endl;
+    //}
     AssetsLoaded = true;
 }
 
@@ -36,6 +41,7 @@ Asset AssetManager::GetAsset(std::string path, std::string assetName)
     Asset r = Asset();
     r.texture.loadFromFile(path);
     r.name = AssetName(assetName);
+
     std::cout << "asset name: " << r.name << std::endl;
     std::cout << "asset path: " << path << std::endl;
     return r;
@@ -66,16 +72,5 @@ std::string AssetManager::AssetName(std::string path)
     {
         return path.replace(path.find(".png"), sizeof(".png") - 1, "");
     }
-    return "";
+    return path;
 }
-
-//void AssetManager::SetAnimations()
-//{
-//    Animation sExplosion(t3, 0, 0, 256, 256, 48, 0.5);
-//    Animation sRock(t4, 0, 0, 64, 64, 16, 0.2);
-//    Animation sRock_small(t6, 0, 0, 64, 64, 16, 0.2);
-//    Animation sBullet(t5, 0, 0, 32, 64, 16, 0.8);
-//    Animation sPlayer(t1, 40, 0, 40, 40, 1, 0);
-//    Animation sPlayer_go(t1, 40, 40, 40, 40, 1, 0);
-//    Animation sExplosion_ship(t7, 0, 0, 192, 192, 64, 0.5);
-//}
