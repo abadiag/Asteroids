@@ -24,6 +24,7 @@
     <ProjectGuid>{2bde9d5b-7b45-43cf-b245-fb01c6c5cd78}</ProjectGuid>
     <RootNamespace>WindowShape</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Asteroids</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -149,6 +150,7 @@
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
@@ -162,6 +164,7 @@
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="EventManager.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Player.h" />

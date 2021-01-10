@@ -9,7 +9,6 @@ GameWindow::GameWindow(const std::string& windowName, float width, float height)
 
 void GameWindow::Update()
 {
-	sf::Event event; // 3
 	if (WindowGame.pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
@@ -22,6 +21,7 @@ void GameWindow::Update()
 void GameWindow::BeginDraw() // 4
 {
 	WindowGame.clear();
+	//Draw(sprite);
 }
 
 void GameWindow::Draw(const sf::Drawable& drawable)
@@ -41,8 +41,9 @@ bool GameWindow::IsOpen() const
 
 void GameWindow::SetSpriteBackground(sf::Texture t)
 {
-	t.setSmooth(true);
-	sf::Sprite s(t);
-	
-	sprite = s;
+	sf::Texture t2;
+	t2.loadFromFile("C:/Users/Albert/source/repos/Graph/External/Textures/background.jpg");
+	t2.setSmooth(true);
+	sf::Sprite back(t2);
+	sprite = back;
 }

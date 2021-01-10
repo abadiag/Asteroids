@@ -12,7 +12,6 @@ public:
     //sf::RenderWindow WindowGame;
     void SetSpriteBackground(sf::Texture t);
     sf::Sprite sprite;
-
-private:
-    sf::RenderWindow WindowGame;
+    sf::Event event;
+    sf::RenderWindow WindowGame;   
 };
