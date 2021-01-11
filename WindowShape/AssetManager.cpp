@@ -1,8 +1,8 @@
 #include "AssetManager.h"
 
-AssetManager::AssetManager()
+AssetManager::AssetManager(std::string path)
 {
-    //background = new sf::Sprite().sf::Texture().loadFromFile(texturePath.append("//background.jpg")));
+    texturePath = path + "Textures/";
 	AssetsLoaded = false;
 }
 
@@ -15,11 +15,6 @@ void AssetManager::LoadAssets()
         Assets.push_back(GetAsset(s, assetName));
     }
 
-    //for(Asset* a: Assets)
-    //{
-    //    std::cout << a->name;
-    //    std::cout << a->texture.getSize().x << std::endl;
-    //}
     AssetsLoaded = true;
 }
 
@@ -53,7 +48,6 @@ std::list<std::string> AssetManager::GetTexturePaths()
     std::list<std::string> filenames;
     for (std::filesystem::directory_iterator iter{ texturePath }; iter != end; ++iter)
     {
-        // http://en.cppreference.com/w/cpp/experimental/fs/is_regular_file 
         if (std::filesystem::is_regular_file(*iter)) 
         { // comment out if all names (names of directories tc.) are required
             filenames.push_back(iter->path().string());     
@@ -73,4 +67,28 @@ std::string AssetManager::AssetName(std::string path)
         return path.replace(path.find(".png"), sizeof(".png") - 1, "");
     }
     return path;
+}
+
+void AssetManager::CreateAnims()
+{
+    expl = GetAssetByName("type_C").texture;
+    sExplosion = new Animation(expl, 0, 0, 256, 256, 48, 0.5);
+
+    rock = GetAssetByName("rock").texture;
+    sRock = new Animation(rock, 0, 0, 64, 64, 16, 0.2);
+
+    rockSmall = GetAssetByName("rock_small").texture;
+    sRock_small = new Animation(rockSmall, 0, 0, 64, 64, 16, 0.2);
+
+    bullet = GetAssetByName("fire_blue").texture;
+    sBullet = new Animation(bullet, 0, 0, 32, 64, 16, 0.8);
+
+    player_t = GetAssetByName("spaceship").texture;
+    sPlayer = new Animation(player_t, 40, 0, 40, 40, 1, 0);
+
+    player_go = GetAssetByName("spaceship").texture;
+    sPlayer_go = new Animation(player_go, 40, 40, 40, 40, 1, 0);
+
+    sExplosion_text = GetAssetByName("type_B").texture;
+    sExplosion_ship = new Animation(sExplosion_text, 0, 0, 192, 192, 64, 0.5);
 }

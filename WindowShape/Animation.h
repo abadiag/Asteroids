@@ -9,7 +9,7 @@ public:
 	std::vector<sf::IntRect> frames;
 
 	Animation();
-	Animation(sf::Texture& t, int x, int y, int w, int h, int count, float Speed);
+	Animation(const sf::Texture& t, int x, int y, int w, int h, int count, float Speed);
 	void update();
 	bool isEnd();
 

@@ -7,7 +7,6 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include "Animation.h"
 
-
 class Asset
 {
 public:
@@ -18,16 +17,26 @@ public:
 class AssetManager
 {
 public:
-	AssetManager();
+	AssetManager(std::string path);
 	void LoadAssets();
+	void CreateAnims();
 	bool AssetsLoaded;
-    //sf::Sprite background(sf::Texture().loadFromFile(texturePath.append("//background.jpg"));
 	Asset GetAssetByName(std::string name);
 	std::list<Asset>Assets;
 	std::list<Animation>animations;
+
+	Animation* sExplosion;
+	Animation* sRock;
+	Animation* sRock_small;
+	Animation* sBullet;
+	Animation* sPlayer;
+	Animation* sPlayer_go;
+	Animation* sExplosion_ship;
 	
 private:
-	std::string texturePath = "C://Users//albert//source//repos//Graph//External//Textures//";
+	sf::Texture player_t, player_go, rock, bullet, rockSmall, sExplosion_text, expl;
+	std::string texturePath;
+
 	Asset GetAsset(std::string path, std::string assetName);
 	std::list<std::string>GetTexturePaths();	
 	//void SetAnimations(); 

@@ -5,11 +5,11 @@ Player::Player()
     name = "player";
 }
 
-void Player::InputKeyb(Actions* a)
+void Player::InputKeyb(Actions a)
 {
-    if (a->RightArrow) angle += 3;
-    if (a->LeftArrow) angle -= 3;
-    if (a->UpArrow) thrust = true;
+    if (a.RightArrow) angle += 3;
+    if (a.LeftArrow) angle -= 3;
+    if (a.UpArrow) thrust = true;
     else thrust = false;
 }
 

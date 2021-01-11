@@ -17,7 +17,7 @@ class EventManager
 public:
 	EventManager();
 	bool pendingEvents = false;
-	Actions* GetEvntActions(sf::RenderWindow& w);
+	Actions GetEvntActions(sf::RenderWindow& w);
 
 private:
 	sf::RenderWindow _window;

@@ -2,7 +2,7 @@
 
 Animation::Animation( ) {}
 
-Animation::Animation(sf::Texture& t, int x, int y, int w, int h, int count, float Speed)
+Animation::Animation(const sf::Texture& t, int x, int y, int w, int h, int count, float Speed)
 {
 	Frame = 0;
 	speed = Speed;

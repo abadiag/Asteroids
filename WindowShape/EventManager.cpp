@@ -3,20 +3,25 @@
 
 EventManager::EventManager() {}
 
-Actions* EventManager::GetEvntActions(sf::RenderWindow& w)
+Actions EventManager::GetEvntActions(sf::RenderWindow& w)
 {
 	sf::Event e;
-	Actions *r = new Actions();
+	Actions r = Actions();
 
 	if (w.pollEvent(e)) {
 		
-		r->DownArrow = (e.key.code == sf::Keyboard::Down);
-		r->UpArrow = (e.key.code == sf::Keyboard::Up);
-		r->LeftArrow = (e.key.code == sf::Keyboard::Left);
-		r->RightArrow = (e.key.code == sf::Keyboard::Right);
-		r->Space = (e.key.code == sf::Keyboard::Space);
-		if (e.type == sf::Event::Resized) { r->WinSizeChange = true; }
-		if (e.type == sf::Event::Closed) { r->WinClosed = true; }
+		r.DownArrow = (e.key.code == sf::Keyboard::Down);
+		r.UpArrow = (e.key.code == sf::Keyboard::Up);
+		r.LeftArrow = (e.key.code == sf::Keyboard::Left);
+		r.RightArrow = (e.key.code == sf::Keyboard::Right);
+		r.Space = (e.key.code == sf::Keyboard::Space);
+		if (e.type == sf::Event::Resized) { r.WinSizeChange = true; }
+		
+		if (e.type == sf::Event::Closed) 
+		{
+			r.WinClosed = true;
+			w.close();
+		}
 	}
 
 	return r;
