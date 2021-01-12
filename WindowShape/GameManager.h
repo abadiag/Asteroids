@@ -15,11 +15,11 @@ public:
 	AssetManager* assetManager;
 	EventManager* evntManager;
 	CollisionManager* collisionMng;
-	GameManager();
+	GameManager(std::string _basePath);
 	void Run();
 
 private:
-	std::string base_path = "F:/Repository/Asteroids/";
+	std::string base_path;// = "D:/Repos/Asteroids/";
 	std::list<GameObject*> gameObjects;
 	sf::Texture t;
 	sf::Sprite s;

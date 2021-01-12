@@ -4,8 +4,9 @@
 #include "Bullet.h"
 #include "CollisionManager.h"
 
-GameManager::GameManager()
+GameManager::GameManager(std::string _basePath)
 {
+	this->base_path = _basePath;
 	srand(time(0));
 	CreateGameWindow();
 	InitialLoad();
@@ -58,6 +59,8 @@ GameObject GameManager::GetGObjByName(std::string name)
 	{
 		if (gObj->name == name) return *gObj;
 	}
+
+	return GameObject();
 }
 
 void GameManager::CreateGameWindow()

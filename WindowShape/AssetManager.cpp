@@ -46,12 +46,19 @@ std::list<std::string> AssetManager::GetTexturePaths()
 {
     const std::filesystem::directory_iterator end{};
     std::list<std::string> filenames;
-    for (std::filesystem::directory_iterator iter{ texturePath }; iter != end; ++iter)
-    {
-        if (std::filesystem::is_regular_file(*iter)) 
-        { // comment out if all names (names of directories tc.) are required
-            filenames.push_back(iter->path().string());     
+
+    try {
+        for (std::filesystem::directory_iterator iter{ texturePath }; iter != end; ++iter)
+        {
+            if (std::filesystem::is_regular_file(*iter))
+            { // comment out if all names (names of directories tc.) are required
+                filenames.push_back(iter->path().string());
+            }
         }
+    }catch(std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+        return filenames;
     }
 	return filenames;
 }
