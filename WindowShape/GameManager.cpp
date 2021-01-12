@@ -35,15 +35,14 @@ void GameManager::Run()
 			e->update();
 			e->anim.update();
 			if (e->name == "player")((Player*)e)->InputKeyb(actions);
-
 			if (e->life == false) { i = gameObjects.erase(i); delete e; }
 			else i++;
 		}
 
 		gameObjects = collisionMng->CheckCollisions(gameObjects);
-
 		WindowGame->BeginDraw(); //Clear screen
 		WindowGame->Draw(s);
+
 		for (auto i : gameObjects)
 		{
 			i->draw(WindowGame->WindowGame);

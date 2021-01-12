@@ -1,23 +1,40 @@
 #include "EventManager.h"
 #include <iostream>
 
-EventManager::EventManager() {}
+EventManager::EventManager()
+{
+	r = Actions();
+}
 
 Actions EventManager::GetEvntActions(sf::RenderWindow& w)
 {
 	sf::Event e;
-	Actions r = Actions();
 
 	if (w.pollEvent(e)) {
-		
-		r.DownArrow = (e.key.code == sf::Keyboard::Down);
-		r.UpArrow = (e.key.code == sf::Keyboard::Up);
-		r.LeftArrow = (e.key.code == sf::Keyboard::Left);
-		r.RightArrow = (e.key.code == sf::Keyboard::Right);
-		r.Space = (e.key.code == sf::Keyboard::Space);
-		if (e.type == sf::Event::Resized) { r.WinSizeChange = true; }
-		
-		if (e.type == sf::Event::Closed) 
+
+		if (e.type == e.KeyPressed)
+		{
+			if (e.key.code == sf::Keyboard::Down)r.DownArrow = true;
+			if (e.key.code == sf::Keyboard::Up)r.UpArrow = true;
+			if (e.key.code == sf::Keyboard::Left)r.LeftArrow = true;
+			if (e.key.code == sf::Keyboard::Right)r.RightArrow = true;
+			if (e.key.code == sf::Keyboard::Space)r.Space = true;
+		}
+		if (e.type == e.KeyReleased)
+		{
+			if (e.key.code == sf::Keyboard::Down)r.DownArrow = false;
+			if (e.key.code == sf::Keyboard::Up)r.UpArrow = false;
+			if (e.key.code == sf::Keyboard::Left)r.LeftArrow = false;
+			if (e.key.code == sf::Keyboard::Right)r.RightArrow = false;
+			if (e.key.code == sf::Keyboard::Space)r.Space = false;
+		}
+
+		if (e.type == sf::Event::Resized)
+		{
+			r.WinSizeChange = true;
+		}
+
+		if (e.type == sf::Event::Closed)
 		{
 			r.WinClosed = true;
 			w.close();
@@ -25,14 +42,4 @@ Actions EventManager::GetEvntActions(sf::RenderWindow& w)
 	}
 
 	return r;
-	
 }
-//struct Actions
-//{
-//	bool* WinSizeChange = false;
-//	bool* UpArrow = false;
-//	bool* DownArrow = false;
-//	bool* LeftArrow = false;
-//	bool* RightArrow = false;
-//	bool* Space = false;
-//};

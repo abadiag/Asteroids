@@ -20,6 +20,7 @@ public:
 	Actions GetEvntActions(sf::RenderWindow& w);
 
 private:
+	Actions r;
 	sf::RenderWindow _window;
 
 };
