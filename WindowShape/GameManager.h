@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "EventManager.h"
 #include "CollisionManager.h"
+#include "UI.h"
 
 
 class GameManager
@@ -15,6 +16,7 @@ public:
 	AssetManager* assetManager;
 	EventManager* evntManager;
 	CollisionManager* collisionMng;
+	UI* ui;
 	GameManager(std::string _basePath);
 	void Run();
 
@@ -27,4 +29,6 @@ private:
 	void CreateInstancies();
 	void InitialLoad();
 	GameObject GetGObjByName(std::string name);
+	int asteroidsCount;
+	int GetAsteroidsRemain();
 };

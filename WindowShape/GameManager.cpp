@@ -6,6 +6,7 @@
 
 GameManager::GameManager(std::string _basePath)
 {
+	asteroidsCount = 15;
 	this->base_path = _basePath;
 	srand(time(0));
 	CreateGameWindow();
@@ -40,8 +41,10 @@ void GameManager::Run()
 		}
 
 		gameObjects = collisionMng->CheckCollisions(gameObjects);
+		ui->setAsteroidCout(GetAsteroidsRemain());
 		WindowGame->BeginDraw(); //Clear screen
 		WindowGame->Draw(s);
+		ui->DrawUI(WindowGame->WindowGame);
 
 		for (auto i : gameObjects)
 		{
@@ -49,6 +52,8 @@ void GameManager::Run()
 		}
 
 		WindowGame->EndDraw(); // Display screen
+
+		if (asteroidsCount == 0) return;
 	}
 }
 
@@ -60,6 +65,18 @@ GameObject GameManager::GetGObjByName(std::string name)
 	}
 
 	return GameObject();
+}
+
+int GameManager::GetAsteroidsRemain()
+{
+	int r = 0;
+	for(GameObject* g: gameObjects)
+	{
+		if (g->name == "asteroid")r++;
+	}
+
+	asteroidsCount = r;
+	return r;
 }
 
 void GameManager::CreateGameWindow()
@@ -91,11 +108,13 @@ void GameManager::CreateInstancies()
 
 void GameManager::InitialLoad()
 {
+	
 	t.loadFromFile(base_path + "External/Textures/background.jpg");
 	s.setTexture(t);
 	evntManager = new EventManager();
 	assetManager = new AssetManager(base_path + "External/");
 	assetManager->LoadAssets();
 	assetManager->CreateAnims();
-	collisionMng = new CollisionManager(assetManager);
+	collisionMng = new CollisionManager(assetManager); 
+	ui = new UI(assetManager);
 }

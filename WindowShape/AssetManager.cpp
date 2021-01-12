@@ -2,7 +2,9 @@
 
 AssetManager::AssetManager(std::string path)
 {
-    texturePath = path + "Textures/";
+    texturePath = path + "Textures/";  
+    fontsPath = path + "Fonts/arial.ttf"; 
+    font.loadFromFile(fontsPath);
 	AssetsLoaded = false;
 }
 

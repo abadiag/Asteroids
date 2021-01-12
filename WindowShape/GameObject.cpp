@@ -2,6 +2,7 @@
 
 GameObject::GameObject()
 {
+	destroyInNextFrame = false;
 	life = 1;
 }
 
@@ -17,6 +18,8 @@ void GameObject::draw(sf::RenderWindow& app)
 {
 	anim.sprite.setPosition(x, y);
 	anim.sprite.setRotation(angle + 90);
+	if (destroyInNextFrame && anim.killAnim)life = 0;
+
 	app.draw(anim.sprite);
 
 	sf::CircleShape circle(R);

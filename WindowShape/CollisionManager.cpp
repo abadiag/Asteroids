@@ -40,8 +40,8 @@ std::list<GameObject*> CollisionManager::CheckCollisions(std::list<GameObject*>&
 					GameObject* e = new GameObject();
 					e->settings(*assMng->sExplosion_ship, a->x, a->y);
 					e->name = "explosion";
+					e->destroyInNextFrame = true;
 					gameObjects.push_back(e);
-
 					a->settings(*assMng->sPlayer, 800 / 2, 600 / 2, 0, 20);
 					a->dx = 0; a->dy = 0;
 				}

@@ -13,4 +13,6 @@ public:
 	void update();
 	bool isEnd();
 
+	bool killAnim;
+
 };

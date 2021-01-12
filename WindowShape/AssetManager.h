@@ -32,14 +32,14 @@ public:
 	Animation* sPlayer;
 	Animation* sPlayer_go;
 	Animation* sExplosion_ship;
-	
+
+	sf::Font font;
+
 private:
 	sf::Texture player_t, player_go, rock, bullet, rockSmall, sExplosion_text, expl;
-	std::string texturePath;
-
+	std::string texturePath, fontsPath;
 	Asset GetAsset(std::string path, std::string assetName);
 	std::list<std::string>GetTexturePaths();	
-	//void SetAnimations(); 
 	std::string AssetName(std::string path);
 };
 

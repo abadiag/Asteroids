@@ -17,17 +17,21 @@ void Player::update()
 {
     if (thrust)
     {
+        //accel force
         dx += cos(angle * DEGTORAD) * 0.2;
         dy += sin(angle * DEGTORAD) * 0.2;
     }
     else
     {
-        dx *= 0.99;
-        dy *= 0.99;
+        //brake force
+        dx *= 0.70;
+        dy *= 0.70;
     }
 
     int maxSpeed = 15;
+
     float speed = sqrt(dx * dx + dy * dy);
+    
     if (speed > maxSpeed)
     {
         dx *= maxSpeed / speed;
@@ -38,5 +42,5 @@ void Player::update()
     y += dy;
 
     if (x > 800) x = 0; if (x < 0) x = 800;
-    if (y > 500) y = 0; if (y < 0) y = 600;
+    if (y > 600) y = 0; if (y < 0) y = 600;
 }

@@ -1,12 +1,16 @@
 #include "Animation.h"
 
-Animation::Animation( ) {}
+Animation::Animation( )
+{
+	killAnim = false;
+}
 
 Animation::Animation(const sf::Texture& t, int x, int y, int w, int h, int count, float Speed)
 {
 	Frame = 0;
 	speed = Speed;
 
+	//cut png in squares w/h count is the quantity of squares avaliable in png
 	for (int i = 0; i < count; i++)
 		frames.push_back(sf::IntRect(x + i * w, y, w, h));
 
@@ -15,9 +19,9 @@ Animation::Animation(const sf::Texture& t, int x, int y, int w, int h, int count
 	sprite.setTextureRect(frames[0]);
 }
 
-
 void Animation::update()
 {
+	if (isEnd()) { killAnim = true; }
 	Frame += speed;
 	int n = frames.size();
 	if (Frame >= n) Frame -= n;
