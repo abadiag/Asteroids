@@ -18,8 +18,8 @@ void Player::update()
     if (thrust)
     {
         //accel force
-        dx += cos(angle * DEGTORAD) * 0.2;
-        dy += sin(angle * DEGTORAD) * 0.2;
+        dx += cos(angle * DEGTORAD) * 0.6;
+        dy += sin(angle * DEGTORAD) * 0.6;
     }
     else
     {

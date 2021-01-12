@@ -19,6 +19,7 @@ std::list<GameObject*> CollisionManager::CheckCollisions(std::list<GameObject*>&
 					GameObject* e = new GameObject();
 					e->settings(*assMng->sExplosion, a->x, a->y);
 					e->name = "explosion";
+					e->destroyInNextFrame = true;
 					gameObjects.push_back(e);
 
 
@@ -27,6 +28,7 @@ std::list<GameObject*> CollisionManager::CheckCollisions(std::list<GameObject*>&
 						if (a->R == 15) continue;
 						GameObject* e = new Asteroid();
 						e->settings(*assMng->sRock_small, a->x, a->y, rand() % 360, 15);
+						e->name = "asteroid";
 						gameObjects.push_back(e);
 					}
 
